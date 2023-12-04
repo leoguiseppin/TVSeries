@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@300&display=swap');
+
+/* Style pour le corps de la page */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0a192f; /* Couleur de fond sombre */
+    color: #fff; /* Couleur de texte clair */
+}
+
+/* Style pour l'en-tête */
+h1 {
+    font-family: 'Oswald', sans-serif;
+    background-color: #a700e6; /* Couleur d'accentuation */
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 0;
+    font-size: 48px; /* Police plus grande pour un look futuriste */
+}
+
+#message {
+    text-align: center;
+    font-size: larger;
+    margin: auto;
+    margin-bottom: 40px;
+    width: 500px;
+    padding: 20px;
+    border-bottom: 2px solid #a700e6;
+}
+
+/* Style pour le formulaire */
+form {
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Afficher les éléments en colonne */
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Style pour les champs de texte */
+input[type="text"], input[type="password"] {
+    padding: 12px 12px 12px 22px;
+    width: 275px;
+    border: none;
+    border-radius: 25px;
+    background-color: #1c2b4e;
+    color: #fff;
+    font-size: 18px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    margin-bottom: 10px; /* Ajoute de l'espace entre les champs */
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+label {
+    margin-bottom: 10px; /* Ajoutez de l'espace en bas du label */
+}
+
+/* Style pour le bouton */
+button {
+    margin-top: 10px;
+    padding: 12px 27px;
+    background-color: #a700e6;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #ba00ff;
+}
+
+/* Style pour les messages d'erreur/succès (facultatif) */
+.error-message {
+    color: red;
+}
+
+.success-message {
+    color: green;
+}
+
+.centered-div {
+    text-align: center; /* Centre le texte horizontalement */
+    margin-top: 20px; /* Ajoute un espace au-dessus de la ligne centrée */
+}
+
+.register-link {
+    text-decoration: none; /* Supprimer le soulignement par défaut */
+    color: #e294ff; /* Couleur du lien lorsque survolé */
+    transition: color 0.3s ease-in-out; /* Animation de transition de couleur lors du survol */
+}
+
+.register-link:hover {
+    color: #a700e6; /* Couleur du lien lorsqu'il est survolé */
+}
+
+.message-container {
+    text-align: center; /* Centre le texte horizontalement */
+    margin: 20px auto; /* Centre la boîte de message horizontalement et ajoute un espacement en haut et en bas */
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    max-width: 400px; /* Définit une largeur maximale pour la boîte de message */
+    margin-left: auto; /* Centre horizontalement */
+    margin-right: auto; /* Centre horizontalement */
+}
+
+/* Style pour le message d'erreur */
+.message.error {
+    background-color: #ff6b6b; /* Couleur de fond pour les erreurs */
+    color: #fff; /* Couleur du texte pour les erreurs */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Style pour le message de succès */
+.message.success {
+    background-color: #a700e6; /* Couleur de fond pour les succès */
+    color: #fff; /* Couleur du texte pour les succès */
+    padding: 10px;
+    border-radius: 5px;
+}

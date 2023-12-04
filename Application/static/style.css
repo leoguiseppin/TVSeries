@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@300&display=swap');
+
+/* Style pour le corps de la page */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0a192f; /* Couleur de fond sombre */
+    color: #fff; /* Couleur de texte clair */
+}
+
+/* Style pour l'en-tête */
+h1 {
+    font-family: 'Oswald', sans-serif;
+    background-color: #9600ce; /* Couleur d'accentuation */
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    font-size: 48px; /* Police plus grande pour un look futuriste */
+}
+
+#series_aimees {
+    width: 400px;
+    margin: auto;
+    background-color: #0a192f; /* Couleur d'accentuation */
+    border-bottom: 3px solid #1c2b4e; /* Bordure des boutons */
+}
+
+#identifiant {
+    text-transform: uppercase;
+    margin: auto;
+    margin-top: 40px;
+    width: 250px;
+    background-color: #1c2b4e;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid #9600ce;
+    border-radius: 5px;
+    font-family: 'Oswald', sans-serif; /* Changer la police */
+    font-size: 40px; /* Changer la taille de la police */
+}
+
+/* Style pour la barre de menus */
+.navbar {
+    background-color: #9600ce; /* Couleur de fond de la barre de menus */
+    overflow: hidden;
+    text-align: center; /* Centrage des liens */
+    padding: 15px 0; /* Espacement autour de la barre de menus */
+}
+
+/* Style pour les liens de la barre de menus */
+.navbar a {
+    display: inline-block; /* Les liens sont désormais des blocs en ligne (comme des boutons) */
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px; /* Espacement intérieur des boutons */
+    text-decoration: none;
+    font-size: 18px;
+    background-color: #1c2b4e; /* Couleur de fond des boutons */
+    border: 3.5px solid #1c2b4e; /* Bordure des boutons */
+    border-radius: 22.5px; /* Coins arrondis des boutons */
+    box-shadow: rgba(0, 0, 0, 0.25) 0 4px 7.5px;
+    margin: 0 10px; /* Espacement horizontal entre les boutons */
+    transition: background-color 0.3s, color 0.3s; /* Transition des couleurs lors du survol */
+}
+
+/* Style pour les liens de la barre de menus au survol */
+.navbar a:hover {
+    background-color: #9600ce; /* Couleur d'accentuation lors du survol */
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    color: #fff;
+}
+
+#message {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.register-link {
+    text-decoration: none; /* Supprimer le soulignement par défaut */
+    color: #e294ff; /* Couleur du lien lorsque survolé */
+    transition: color 0.3s ease-in-out; /* Animation de transition de couleur lors du survol */
+}
+
+.register-link:hover {
+    color: #9600ce; /* Couleur du lien lorsqu'il est survolé */
+}
+
+/* Style pour le formulaire de recherche */
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Style pour le champ de texte */
+input[type="text"] {
+    padding: 12px 12px 12px 22px; /* Ajoutez 15px de marge à gauche */
+    width: 300px;
+    border: none;
+    border-radius: 25px;
+    background-color: #1c2b4e; /* Couleur de fond du champ de recherche */
+    color: #fff;
+    font-size: 18px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Lueur douce */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Lueur plus prononcée lorsqu'il est en focus */
+}
+
+button {
+    padding: 15px 30px;
+    background-color: #9600ce;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #ba00ff; /* Couleur d'accentuation lors du survol */
+}
+
+/* Style pour la liste des séries recommandées */
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 25px; /* Police plus grande pour les titres */
+    color: #9600ce;
+}
+
+/* Style pour les conteneurs de séries */
+.series-container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Style pour chaque boîte de série */
+.series-box {
+    width: 22%;
+    margin: 20px;
+    padding: 20px;
+    background-color: #1c2b4e;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.series-box:hover {
+    transform: scale(1.05);
+}
+
+/* Style pour l'image de série */
+.series-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Style pour le nom de la série */
+.series-box p {
+    margin-top: 10px;
+    font-size: 20px; /* Police plus grande pour le nom de la série */
+    color: #fff;
+}
+
+.like-button.liked i::before {
+    content: "\f004"; /* Remplacez-le par le code FontAwesome du cœur rempli */
+    color: red; /* Couleur du cœur rempli */
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='auth.css') }}">
+    <title>Confirmation de suppression</title>
+</head>
+<body>
+    <h1>Confirmation de suppression</h1>
+    
+    <!-- Message de confirmation de suppression -->
+    <p id="message">Voulez-vous vraiment supprimer votre compte ?</p>
+    
+    <!-- Formulaire de confirmation de suppression -->
+    <form method="POST" action="{{ url_for('suppression') }}">
+        <label for="confirmation">Tapez "supprimer" pour confirmer :</label>
+        <input type="text" id="confirmation" name="confirmation">
+        <button type="submit">Supprimer mon compte</button>
+    </form>
+
+    <!-- Affichage des messages, tels que la confirmation de suppression ou les erreurs -->
+    <div class="message-container">
+        {% if message %}
+            <div class="message {{ message_type }}">{{ message }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='auth.css') }}">
+    <title>Connexion</title>
+</head>
+<body>
+    <h1>Connexion</h1>
+
+    <!-- Formulaire de connexion -->
+    <form method="POST">
+        <label for="identifiant">Identifiant:</label>
+        <input type="text" id="identifiant" name="identifiant" required>
+        <label for="mot_de_passe">Mot de passe:</label>
+        <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+        <button type="submit">Se connecter</button>
+    </form>
+
+    <!-- Lien vers la page d'inscription -->
+    <div class="centered-div">
+        <p>Vous n'avez pas de compte ? <a href="{{ url_for('inscription') }}" class="register-link">Inscrivez-vous</a></p>
+    </div>
+
+    <!-- Affichage des messages d'erreur ou de succès -->
+    <div class="message-container">
+        {% if message %}
+            <div class="message {{ message_type }}">{{ message }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>

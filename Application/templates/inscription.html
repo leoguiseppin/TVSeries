@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='auth.css') }}">
+    <title>Inscription</title>
+</head>
+<body>
+    <h1>Inscription</h1>
+
+    <!-- Formulaire d'inscription -->
+    <form method="POST">
+        <label for="identifiant">Identifiant:</label>
+        <input type="text" id="identifiant" name="identifiant" required>
+        <label for="mot_de_passe">Mot de passe:</label>
+        <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+        <button type="submit">S'inscrire</button>
+    </form>
+
+    <!-- Lien pour se connecter si l'utilisateur possède déjà un compte -->
+    <div class="centered-div">
+        <p>Vous possédez déjà un compte ? <a href="{{ url_for('login') }}" class="register-link">Connectez-vous</a></p>
+    </div>
+
+    <!-- Affichage des messages, tels que les erreurs d'inscription -->
+    <div class="message-container">
+        {% if message %}
+            <div class="message {{ message_type }}">{{ message }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>

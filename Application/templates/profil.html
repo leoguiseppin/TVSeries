@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Mon Profil</title>
+</head>
+<body>
+    <h1>Mon Profil</h1>
+
+    <!-- Barre de navigation -->
+    <div class="navbar">
+        <a href="{{ url_for('search_series') }}">Recherche</a>
+        <a href="{{ url_for('recommandations') }}">Recommandations</a>
+        <a href="{{ url_for('profil') }}">Mon Profil</a>
+        <a href="#" id="deconnexion" class="btn btn-danger">Déconnexion</a>
+    </div>
+
+    <!-- Affichage de l'identifiant de l'utilisateur connecté -->
+    <h2 id="identifiant">{{ current_user.identifiant }}</h2>
+
+    <!-- Lien de suppression de compte -->
+    <div class="centered-div">
+        <p id="message">Voulez-vous supprimer votre compte ? <a href="{{ url_for('suppression') }}" class="register-link">Supprimer mon compte</a></p>
+    </div>
+
+    <!-- Section des séries aimées -->
+    <h1 id="series_aimees">Séries Aimées</h1>
+    <div class="series-container">
+        <!-- Boucle pour afficher les séries aimées -->
+        {% for serie in series_aimees %}
+        <div class="series-box">
+            <img src="{{ url_for('static', filename='images/' + serie + '.jpg') }}" alt="{{ serie }} Poster" class="series-image">
+            <form class="like-form" method="POST" action="javascript:void(0);">
+                <button type="button" class="like-button liked" data-series-title="{{ serie }}">
+                    <i class="fas fa-heart"></i> J'aime
+                </button>
+                <input type="hidden" class="like-input" name="liked" value="1">
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Script JavaScript pour gérer les actions de l'utilisateur -->
+    <script>
+        // Gestion de la déconnexion
+        document.getElementById("deconnexion").addEventListener("click", function () {
+            if (confirm("Êtes-vous sûr de vouloir vous déconnecter ?")) {
+                // Si l'utilisateur clique sur "Oui", il est redirigé vers la page de déconnexion
+                window.location.href = "{{ url_for('logout') }}";
+            }
+        });
+
+        // Gestion des "j'aime" des séries en utilisant jQuery
+        $(document).ready(function () {
+            $(".like-button").click(function () {
+                const seriesTitle = $(this).data("series-title");
+                const likeButton = $(this);
+    
+                $.post(`/like_series/${seriesTitle}`, function (data) {
+                    if (data === "liked") {
+                        likeButton.addClass("liked");
+                    } else if (data === "unliked") {
+                        likeButton.removeClass("liked");
+                    }
+                });
+            });
+        });
+
+        // Gestion de l'envoi des formulaires "j'aime"
+        document.addEventListener("DOMContentLoaded", function () {
+            const likeForms = document.querySelectorAll(".like-form");
+            likeForms.forEach(function (form) {
+                form.addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    const likeButton = form.querySelector(".like-button");
+                    const likeInput = form.querySelector(".like-input");
+    
+                    if (likeInput.value === "0") {
+                        // L'utilisateur aime la série
+                        likeButton.classList.add("liked");
+                        likeInput.value = "1";
+                    } else {
+                        // L'utilisateur annule son "j'aime"
+                        likeButton.classList.remove("liked");
+                        likeInput.value = "0";
+                    }
+    
+                    // Envoie du formulaire
+                    form.submit();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
